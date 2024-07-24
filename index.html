@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Centro Médico Ñuñoa</title>
+</head>
+<body>
+
+<script>
+    document.write('<h1>Estadísticas Centro Médico Ñuñoa</h1>');
+
+    // Datos de las consultas de Traumatología
+    const radiologia = [
+        { hora: "8:00", especialista: "MARIA PAZ ALTUZARRA", paciente: "PAULA SANCHEZ", rut: "15554774-5", prevision: "FONASA", especialidad: "Radiología"},
+        { hora: "10:00", especialista: "RAUL ARAYA", paciente: "ANGÉLICA NAVAS", rut: "15444147-9", prevision: "ISAPRE", especialidad: "Radiología"},
+        { hora: "10:30", especialista: "MARIA ARRIAGADA", paciente: "ANA KLAPP", rut: "17879423-9", prevision: "ISAPRE", especialidad: "Radiología"},
+        { hora: "11:00", especialista: "ALEJANDRO BADILLA", paciente: "FELIPE MARDONES", rut: "1547423-6", prevision: "ISAPRE", especialidad: "Radiología"},
+        { hora: "11:30", especialista: "CECILIA BUDNIK", paciente: "DIEGO MARRE", rut: "16554741-K", prevision: "FONASA", especialidad: "Radiología"},
+        { hora: "12:00", especialista: "ARTURO CAVAGNARO", paciente: "CECILIA MENDEZ", rut: "9747535-8", prevision: "ISAPRE", especialidad: "Radiología"},
+        { hora: "12:30", especialista: "ANDRES KANACRI", paciente: "MARCIAL SUAZO", rut: "11254785-5", prevision: "ISAPRE", especialidad: "Radiología"}
+    ];
+
+
+    // Datos de las consultas de Traumatología
+    const traumatologia = [
+      { hora: "8:00", especialista: "MARIA PAZ ALTUZARRA", paciente: "PAULA SANCHEZ", rut: "15554774-5", prevision: "FONASA", especialidad: "Traumatología"},
+      { hora: "10:00", especialista: "RAUL ARAYA", paciente: "ANGÉLICA NAVAS", rut: "15444147-9", prevision: "ISAPRE", especialidad: "Traumatología"},
+      { hora: "10:30", especialista: "MARIA ARRIAGADA", paciente: "ANA KLAPP", rut: "17879423-9", prevision: "ISAPRE", especialidad: "Traumatología"},
+      { hora: "11:00", especialista: "ALEJANDRO BADILLA", paciente: "FELIPE MARDONES", rut: "1547423-6", prevision: "ISAPRE", especialidad: "Traumatología"},
+      { hora: "11:30", especialista: "CECILIA BUDNIK", paciente: "DIEGO MARRE", rut: "16554741-K", prevision: "FONASA", especialidad: "Traumatología"},
+      { hora: "12:00", especialista: "ARTURO CAVAGNARO", paciente: "CECILIA MENDEZ", rut: "9747535-8", prevision: "ISAPRE", especialidad: "Traumatología"},
+      { hora: "12:30", especialista: "ANDRES KANACRI", paciente: "MARCIAL SUAZO", rut: "11254785-5", prevision: "ISAPRE", especialidad: "Traumatología"}
+    ];
+    
+    // Datos de las consultas de Dental
+    const dental = [
+      { hora: "8:30", especialista: "ANDREA ZUÑIGA", paciente: "MARCELA RETAMAL", rut: "11123425-6", prevision: "ISAPRE", especialidad: "Dental"},
+      { hora: "11:00", especialista: "MARIA PIA ZAÑARTU", paciente: "ANGEL MUÑOZ", rut: "9878789-2", prevision: "ISAPRE", especialidad: "Dental"},
+      { hora: "11:30", especialista: "SCARLETT WITTING", paciente: "MARIO KAST", rut: "7998789-5", prevision: "FONASA", especialidad: "Dental"},
+      { hora: "13:00", especialista: "FRANCISCO VON TEUBER", paciente: "KARIN FERNANDEZ", rut: "18887662-K", prevision: "FONASA", especialidad: "Dental"},
+      { hora: "13:30", especialista: "EDUARDO VIÑUELA", paciente: "HUGO SANCHEZ", rut: "17665461-4", prevision: "FONASA", especialidad: "Dental"},
+      { hora: "14:00", especialista: "RAQUEL VILLASECA", paciente: "ANA SEPULVEDA", rut: "14441281-0", prevision: "ISAPRE", especialidad: "Dental"}
+      ];
+      
+    // Combinar todos los datos en un solo arreglo
+    const todasConsultas = radiologia.concat(traumatologia, dental);
+
+    // Mostrar primera y última atención de todas las consultas
+    document.write('<h2>Todas las Consultas</h2>');
+    document.write('<p>Primera atención: ' + todasConsultas[0].paciente + ' - ' + todasConsultas[0].prevision + ' | Última atención: ' + todasConsultas[todasConsultas.length - 1].paciente + ' - ' + todasConsultas[todasConsultas.length - 1].prevision + '</p>');
+
+    // Mostrar primera y última atención de cada especialidad
+    document.write('<h2>Primera y Última Atención por Especialidad</h2>');
+    document.write('<p>Radiología: Primera atención: ' + radiologia[0].paciente + ' - ' + radiologia[0].prevision + ' | Última atención: ' + radiologia[radiologia.length - 1].paciente + ' - ' + radiologia[radiologia.length - 1].prevision + '</p>');
+    document.write('<p>Traumatología: Primera atención: ' + traumatologia[0].paciente + ' - ' + traumatologia[0].prevision + ' | Última atención: ' + traumatologia[traumatologia.length - 1].paciente + ' - ' + traumatologia[traumatologia.length - 1].prevision + '</p>');
+    document.write('<p>Dental: Primera atención: ' + dental[0].paciente + ' - ' + dental[0].prevision + ' | Última atención: ' + dental[dental.length - 1].paciente + ' - ' + dental[dental.length - 1].prevision + '</p>');
+
+
+    // Mostrar contenido de todas las consultas en una tabla
+    document.write('<table border="1">');
+    document.write('<tr><th>HORA</th><th>ESPECIALIDAD</th><th>ESPECIALISTA</th><th>PACIENTE</th><th>RUT</th><th>PREVISION</th></tr>');
+    todasConsultas.forEach(function(atencion) {
+        document.write('<tr>');
+        document.write('<td>' + atencion.hora + '</td>');
+        document.write('<td>' + atencion.especialidad + '</td>');
+        document.write('<td>' + atencion.especialista + '</td>');
+        document.write('<td>' + atencion.paciente + '</td>');
+        document.write('<td>' + atencion.rut + '</td>');
+        document.write('<td>' + atencion.prevision + '</td>');
+        document.write('</tr>');
+    });
+    document.write('</table>');
+</script>
+
+</body>
+</html>
